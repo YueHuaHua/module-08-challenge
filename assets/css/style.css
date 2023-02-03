@@ -11,6 +11,8 @@ header {
 	transition: opacity 0.2s, transform 0.2s;
 }
 
+/* added custom-container */
+#today:hover,
 .forecast-card:hover {
 	opacity: 0.9;
 	transform: scale(1.03);
@@ -32,3 +34,23 @@ header {
 	text-align: center;
 	font-size: 125%;
 }
+
+
+/* Main Card */
+
+#today {
+    background-image: linear-gradient(160deg, #235588,  #452764);
+    border-radius: 10px;
+    margin: 0 auto 50px auto;
+    max-width: 720px;
+    padding: 0px;
+    color: white;
+    padding: 15px;
+  }
+  
+  #mainTemperature{
+    font-size: 5.5em; 
+    line-height: 0.7;
+  }
+  
+ 
