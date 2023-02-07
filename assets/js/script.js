@@ -124,7 +124,7 @@ let queryForecastURLTop = "https://api.openweathermap.org/data/2.5/forecast?q=";
 function callAPI () {
     // Today URL
     apiCall = $.ajax({
-        url: queryURLTop + queryTerm + queryURLBottom + APIKey,
+        url: queryURLTop + "london" + queryURLBottom + APIKey,
         method: "GET"
     }).then(function (response) {
         console.log(response);
@@ -133,8 +133,8 @@ function callAPI () {
         responseTodayWind = response["wind"]["speed"];
         responseTodayHumidity = response["main"]["humidity"];
         updateScreen();
-
     })
+
     // Forecast URL
     apiCall = $.ajax({
         url: queryForecastURLTop + queryTerm + queryURLBottom + APIKey,
@@ -166,7 +166,7 @@ function callAPI () {
     })
 }
 
-// Functions
+// Update Screen Function
 function updateScreen () {
     cityNameText.text(`${responseCityNameDate}`);
     cityDateText.text(`${responseCityDate.substring(0,10)}`)
