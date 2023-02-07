@@ -14,10 +14,9 @@
 </head>
 
 <body class="d-flex flex-column vh-100">
-  <header class="jumbotron jumbotron-fluid custom-jumbotron text-light">
+  <header class="jumbotron jumbotron-fluid text-light">
     <div class="container-fluid text-center">
       <h1 class="display-4">Weather Dashboard</h1>
-      <p class="lead">All the weather info you need, without the news!</p>
     </div>
   </header>
 
@@ -26,13 +25,13 @@
 
       <!-- LEFT COLUMN -->
       <div class="col-12 col-sm-12 col-md-12 col-lg-3">
-        <div id="search-card" class="card px-4 py-4 bg-dark text-light">
+        <div id="search-card" class="px-4 py-4">
           <h2>Search for a City:</h2>
 
           <!-- CITY SEARCH FORM -->
           <form class="border-bottom mb-2">
             <input type="text" class="form-control mb-2" id="city-search" placeholder="Enter a City" autocomplete="off">
-            <button class="btn btn-primary btn-block mb-2" id="city-search-btn">Search</button>
+            <button class="btn btn-primary btn-block mb-2 custom-button" id="city-search-btn">Search</button>
           </form>
 
           <!-- SEARCH HISTORY BUTTONS -->
@@ -45,35 +44,28 @@
         <div class="row p-3 m-1">
           <!-- MAIN CARD -->
           <div id="main-card" class=" card col-12 text-light p-3">
-            <div class="row">
-              <div class="col-12 col-lg-4 text-center p-4">
-                <h2><span id="main-card-city"></span> <span id="main-card-date"></span></h2>
-                <img id="main-card-icon">
-              </div>
-              <div class="col-12 col-lg-8 d-flex align-items-center justify-content-between">
+            <div class="d-flex justify-content-around row">
+              <div class="main-left-content">
+                <span id="main-card-date"></span>
+                <h2 id="main-card-city"></h2>
 
-                <div class="container">
-                  <div class="row d-flex justify-content-around">
-                    <div class="main-text col-12 col-lg-2 text-center border rounded m-2 p-2">
-                      <p>Temp:</p>
-                      <span id="main-card-temp"></span>
-                    </div>
-                    <div class="main-text col-12 col-lg-2 text-center border rounded m-2 p-2">
-                      <p>Wind:</p>
-                      <span id="main-card-wind"></span>
-                    </div>
-                    <div class="main-text col-12 col-lg-2 text-center border rounded m-2 p-2">
-                      <p>Humidity:</p>
-                      <span id="main-card-humidity"></span>
-                    </div>
-                    <div class="main-text col-12 col-lg-2 align-self-center">
-                      <a href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank">
-                        <p>UVI: <span id="main-card-uv"></span></p>
-                      </a>
-                    </div>
-                  </div>
+                <div class="main-text">
+                  <p>Temp: <span id="main-card-temp"></span></p>
                 </div>
-
+                <div class="main-text">
+                  <p>Wind: <span id="main-card-wind"></span></p>
+                </div>
+                <div class="main-text">
+                  <p>Humidity: <span id="main-card-humidity"></span></p>
+                </div>
+                <div class="main-text">
+                  <a href="https://www.epa.gov/sunsafety/uv-index-scale-0" target="_blank">
+                    <p>UVI: <span id="main-card-uv"></span></p>
+                  </a>
+                </div>
+              </div>
+              <div >
+                <img id="main-card-icon">
               </div>
             </div>
           </div>
@@ -134,8 +126,7 @@
   </div>
 
   <footer>
-    <a href="https://www.github.com/awidener3" target="_blank" rel="noopener noreferrer"><img
-        src="./assets/images/GitHub-Mark-Light-64px.png" alt="GitHub logo"></a>
+    Built by <a href="https://github.com/YueHuaHua/">YueHuaHua</a>
   </footer>
 
 
