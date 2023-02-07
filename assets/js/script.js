@@ -27,14 +27,14 @@ let weatherApiUrl = 'https://api.openweathermap.org';
 let weatherApiKey = '&appid=3dcebf80294bbadbeab3a3d24374fc77';
 let oneCallEndpoint = '/data/2.5/onecall?';
 let defaultSearch = [
-	'New York',
-	'Chicago',
-	'Austin',
-	'San Francisco',
-	'Seattle',
-	'Denver',
-	'Atlanta',
-	'San Diego',
+	'London',
+	'Leeds',
+	'Edinburgh',
+	'Glasgow',
+	'Manchaster',
+	'Keighley',
+	'Grimsby',
+	'York',
 ];
 let today = moment().format('M/DD/YYYY');
 
@@ -82,11 +82,9 @@ fetchWeather = (weatherData) => {
 
 renderCurrentWeather = (coordinatesData, openWeatherData) => {
 	// sets card content
-	mainCardCity.textContent = coordinatesData[0].name;
+	mainCardCity.textContent = coordinatesData[0].name + `, ` + coordinatesData[0].country;
 	mainCardIcon.src = `http://openweathermap.org/img/wn/${openWeatherData.current.weather[0].icon}@2x.png`;
-	mainCardTemp.textContent = `${Math.trunc(
-		openWeatherData.current.temp
-	)}\xB0F`;
+	mainCardTemp.textContent = `${Math.trunc((openWeatherData.current.temp -32) / 1.8)}\xB0C`;
 	mainCardWind.textContent = `${openWeatherData.current.wind_speed} mph`;
 	mainCardHumidity.textContent = `${openWeatherData.current.humidity}%`;
 	mainCardUv.textContent = Math.trunc(openWeatherData.current.uvi);
@@ -115,9 +113,7 @@ renderForecast = (openWeatherData) => {
 		forecastCardIcon[
 			i
 		].src = `http://openweathermap.org/img/wn/${openWeatherData.daily[i].weather[0].icon}@2x.png`;
-		forecastCardTemp[i].textContent = `${Math.trunc(
-			openWeatherData.daily[i].temp.day
-		)}\xB0F`;
+		forecastCardTemp[i].textContent = `${Math.trunc((openWeatherData.daily[i].temp.day-32) / 1.8)}\xB0C`;
 		forecastCardWind[
 			i
 		].textContent = `${openWeatherData.daily[i].wind_speed} mph`;
