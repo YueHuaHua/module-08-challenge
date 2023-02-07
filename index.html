@@ -1,38 +1,41 @@
+<!-- HTML Declaration -->
 <!DOCTYPE html>
 <html lang="en-gb">
 
+<!-- Head Section -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <!-- CSS style -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Bootstrap -->
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="./assets/css/style.css"/>
+  <!-- Bootstrap Links -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <title>Weather Dashboard</title>
 </head>
 
-<body class="d-flex flex-column vh-100">
-  <!-- Header -->
-  <header class="jumbotron jumbotron-fluid text-white bg-dark p-2 weather-header">
-    <div class="container-fluid text-center">
-      <h1 class="display-4 font-weight-bold">Weather Dashboard</h1>
-    </div>
+<!-- Body Section -->
+<body>
+
+  <!-- Header Section -->
+  <header class="container-fluid text-center text-white bg-dark p-2 weather-header">
+    <h1>Weather Dashboard</h1>
   </header>
 
+  <!-- Main Body -->
   <!-- max-width for ultra wide resolutions -->
   <div class="container-fluid" style="max-width: 1400px">
     <div class="row">
-      <!-- Left Column -->
-      <aside class="col-lg-3 pb-3">
-        <h2 id="form-heading" class="mt-1 h3 form-label">Search for a City:</h2>
+      <aside id="screen-top" class="col-lg-3 pb-3">
+        <h2 id="form-heading" class="mt-1 h3 form-label">
+          Search for a City:
+        </h2>
 
-        <!-- City Search Form -->
         <form id="search-form" class="form">
           <div class="form-inline form-group">
             <div class="input-group">
-              <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
+              <input class="form-input weather-search" type="text" id="search-input" placeholder="Search City"
                 aria-labelledby="form-heading" aria-controls="today forecast" />
               <div class="input-group-append">
                 <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
@@ -43,116 +46,72 @@
             </div>
           </div>
         </form>
+        <div id="button-section">
+          <button class="city-button" id="berlin">Berlin</button>
+          <button class="city-button" id="paris">Paris</button>
+          <button class="city-button" id="edinburgh">Edinburgh</button>
+          <button class="city-button" id="madrid">Madrid</button>
+          <button class="city-button" id="birmingham">Birmingham</button>
+          <button class="city-button" id="london">London</button>
+        </div>
         <div class="list-group" id="history"></div>
       </aside>
-      
-      <!-- Right Column -->
-      <div class="right-container" id="wrapper">
 
-        <!-- Main Card -->
-        <section id="today" class="container-fluid" role="region" aria-live="polite">
-          <div class="row">
-
-            <!-- Right panel -->
-            <div class="col-md-4 col-sm-5">
-              <h5><spam id="cityName">London</spam>, <spam id="cityCode">GB</spam></h5>
-              <h6 id="localDate">Friday, 3rd February 2023</h6>
-              <h5 id="localTime">19:53</h5>
-              <a id="refreshButton" href="#"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Refresh</a>
-            </div>
-            
-            <!-- Center panel -->
-            <div class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
-              <div class="row">
-                <i class="wi" id ="main-icon" style="font-size: 85px;"></i>
-                <div>
-                  <spam id="mainTemperature">16</spam>
-                  <p id="tempDescription">Overcast Clouds</p>
-                </div>
-                <p style="font-size: 1.5rem;"><a href="#" class="active" id="celcius">°C</a> | <a href="#" id="farenheit">°F</a></p>
-              </div>
-            </div>
-            
-            <!-- Left panel -->
-            <div class="col-xs-12 col-sm-12 col-md-3 row" style="text-align: right;">
-              <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                <h6>Humidity: <spam id="humidity"></spam>%</h6>
-              </div>
-              <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                <h6>Wind: <spam id="wind"></spam> m/s</h6>
-              </div>
-              <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                <h6>High: <spam id="mainTempHot"></spam>°</h6>
-              </div>
-              <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                <h6>Low: <spam id="mainTempLow"></spam>°</h6>
-              </div>
-            </div>
-
-          </div>
+      <div class="col-lg-9 pb-3 ">
+        <section id="today" class="row mt-3" role="region" aria-live="polite">
+          <span id="city-date" class="cityDate">01/01/2023</span>
+          <h1 id="city-name" class="cityName">London</h1>
+          <p id="today-temperature"></p>
+          <p id="today-wind"></p>
+          <p id="today-humidity"></p>
         </section>
 
-        <!-- 5-Day Forecast -->
-        <section id="forecast" class="container col-12 d-flex" role="region" aria-live="polite">
-          <div class="row d-flex justify-content-around m-1">
-            <h3 class="col-12">5-Day Forecast:</h3>
-
-            <!-- DAY 1 -->
-            <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 m-1 forecast-card">
-              <h4 class="forecast-date"></h4>
-              <img class="forecast-icon">
-              <p>Temp: <span class="forecast-temp"></span></p>
-              <p>Wind: <span class="forecast-wind"></span></p>
-              <p>Humidity: <span class="forecast-humidity"></span></p>
+        <section id="forecast" class="container row mt-3" role="region" aria-live="polite">
+          <h1 class="row">5 Day Forecast:</h1>
+          <div class="row">
+            <div class="forecast-box col" id="day-plus-1">
+              <h4 id="day-plus-1-date"></h4>
+              <p id="day-plus-1-temperature"></p>
+              <p id="day-plus-1-wind"></p>
+              <p id="day-plus-1-humidity"></p>
             </div>
-
-            <!-- DAY 2 -->
-            <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 m-1 forecast-card">
-              <h4 class="forecast-date"></h4>
-              <img class="forecast-icon">
-              <p>Temp: <span class="forecast-temp"></span></p>
-              <p>Wind: <span class="forecast-wind"></span></p>
-              <p>Humidity: <span class="forecast-humidity"></span></p>
+            <div class="forecast-box col" id="day-plus-2">
+              <h4 id="day-plus-2-date"></h4>
+              <p id="day-plus-2-temperature"></p>
+              <p id="day-plus-2-wind"></p>
+              <p id="day-plus-2-humidity"></p>
             </div>
-
-            <!-- DAY 3 -->
-            <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 m-1 forecast-card">
-              <h4 class="forecast-date"></h4>
-              <img class="forecast-icon">
-              <p>Temp: <span class="forecast-temp"></span></p>
-              <p>Wind: <span class="forecast-wind"></span></p>
-              <p>Humidity: <span class="forecast-humidity"></span></p>
+            <div class="forecast-box col" id="day-plus-3">
+              <h4 id="day-plus-3-date"></h4>
+              <p id="day-plus-3-temperature"></p>
+              <p id="day-plus-3-wind"></p>
+              <p id="day-plus-3-humidity"></p>
             </div>
-
-            <!-- DAY 4 -->
-            <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 m-1 forecast-card">
-              <h4 class="forecast-date"></h4>
-              <img class="forecast-icon">
-              <p>Temp: <span class="forecast-temp"></span></p>
-              <p>Wind: <span class="forecast-wind"></span></p>
-              <p>Humidity: <span class="forecast-humidity"></span></p>
+            <div class="forecast-box col" id="day-plus-4">
+              <h4 id="day-plus-4-date"></h4>
+              <p id="day-plus-4-temperature"></p>
+              <p id="day-plus-4-wind"></p>
+              <p id="day-plus-4-humidity"></p>
             </div>
-
-            <!-- DAY 5 -->
-            <div class="col-12 col-sm-12 col-md-3 col-lg-2 card text-light p-2 m-1 forecast-card">
-              <h4 class="forecast-date"></h4>
-              <img class="forecast-icon">
-              <p>Temp: <span class="forecast-temp"></span></p>
-              <p>Wind: <span class="forecast-wind"></span></p>
-              <p>Humidity: <span class="forecast-humidity"></span></p>
+            <div class="forecast-box col" id="day-plus-5">
+              <h4 id="day-plus-5-date"></h4>
+              <p id="day-plus-5-temperature"></p>
+              <p id="day-plus-5-wind"></p>
+              <p id="day-plus-5-humidity"></p>
             </div>
-
           </div>
         </section>
       </div>
     </div>
   </div>
 
+  <!-- API Links -->
   <!-- Moment.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="script.js"></script>
+  <!-- My JavaScript -->
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

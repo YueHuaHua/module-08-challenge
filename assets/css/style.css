@@ -1,56 +1,75 @@
 header {
-    background: linear-gradient(to left, #452764 0%, #235588 100%);
+  background: linear-gradient(to left, #452764 0%, #235588 100%);
 }
 
-/* FORECAST CARDS */
-
-.forecast-card {
-	background-image: linear-gradient(160deg, #235588,  #452764);
-	width: 250px;
-	opacity: 1;
-	transition: opacity 0.2s, transform 0.2s;
+#today {
+  padding: 20px;
+  border-style: solid;
+  display: none;
+  flex-direction: column;
+  background-image: linear-gradient(160deg, #235588,  #452764);
+  border-radius: 10px;
+  color: white;
 }
 
-/* added custom-container */
-#today:hover,
-.forecast-card:hover {
-	opacity: 0.9;
+#today span {
+  font-size: 20px;
+}
+
+#today h1 {
+  margin: 5px 0 15px 0;
+}
+
+#today p {
+  margin-bottom: 2px;
+}
+
+#forecast {
+  display: none; 
+  flex-direction:column;
+}
+
+.forecast-box {
+  margin-right: 10px;
+  border-style: solid;
+  padding: 10px;
+  background-image: linear-gradient(160deg, #235588,  #452764);
+  border-radius: 10px;
+  color: white;
+}
+
+.forecast-box:hover {
+  opacity: 0.9;
 	transform: scale(1.03);
 }
 
-.forecast-card img {
-	margin: 0 auto;
+#button-section {
+  display: flex;
+  flex-direction: column;
 }
 
-.forecast-date {
-	text-align: center;
-	font-size: 150%;
+.city-button {
+  padding: 10px;
+  margin: 10px;
+  background-image: linear-gradient(160deg, #235588,  #452764);
+  border-radius: 10px;
+  color: white;
 }
 
-.forecast-temp,
-.forecast-wind,
-.forecast-humidity {
-	margin-left: 15px;
-	text-align: center;
-	font-size: 125%;
+.show{
+  display: flex !important;
+}
+
+#search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#screen-top {
+  margin-top: 20px;
 }
 
 
-/* Main Card */
 
-#today {
-    background-image: linear-gradient(160deg, #235588,  #452764);
-    border-radius: 10px;
-    margin: 0 auto 50px auto;
-    max-width: 720px;
-    padding: 0px;
-    color: white;
-    padding: 15px;
-  }
-  
-  #mainTemperature{
-    font-size: 5.5em; 
-    line-height: 0.7;
-  }
-  
- 
