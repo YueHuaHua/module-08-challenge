@@ -59,7 +59,8 @@ When a user view future weather conditions for that city they are presented with
 
 ### Search History
 
-![Search History Bar](./assets/img/readme-04-search-history.JPG)  ![Application Demo](./assets/img/readme-05-search-history-local-storage.JPG)
+<img src="./assets/img/readme-04-search-history.JPG" alt="Search History Bar" width=425px>
+<img src="./assets/img/readme-05-search-history-local-storage.JPG" alt="Application Demo" width=400px>
 
 * When a user searches for a city they are presented with current and future conditions for that city and that city is added to the search history
 * When a user click on a city in the search history they are again presented with current and future conditions for that city
