@@ -31,7 +31,7 @@ let defaultSearch = [
 	'Leeds',
 	'Edinburgh',
 	'Glasgow',
-	'Manchaster',
+	'Manchester',
 	'Keighley',
 	'Grimsby',
 	'York',
